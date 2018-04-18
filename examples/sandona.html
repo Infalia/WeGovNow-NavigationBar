@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>San Donà di Piave WeGovNow Navigation Bar Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<!-- 
+    GET all-in-one inline content from UWUM and put it in your HTML document
+ -->
+    
+<!-- WeGovNow Navigation Bar CSS starts -->
+<style type="text/css">
+  a.wgn-skip-to {
+    background-color: #bd3741;
+    color: #fff;
+    display: inline-block;
+    padding: 0.6em 1.1em;
+    z-index: 9999;
+    text-decoration: none;
+    font-family: sans-serif;
+  }
+  .wgn-visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+  }
+  .wgn-skip-to.wgn-visually-hidden.wgn-focusable:active,
+  .wgn-skip-to.wgn-visually-hidden.wgn-focusable:focus {
+    position: absolute !important;
+    top: 3px;
+    left: 3px;
+    clip: auto;
+    overflow: visible;
+    height: auto;
+    width: auto;
+  }   
+  .wgn-nav-bar a {
+    text-decoration: none;
+  }
+  .wgn-nav-bar ul {
+    margin: 0;
+    padding: 0;
+  }
+  .wgn-nav-bar ul li {
+    list-style: none;
+  }
+  .wgn-nav-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 0;
+    background-color: white;
+    -webkit-box-shadow: 1px 1px 3px #666;
+       -moz-box-shadow: 1px 1px 3px #666;
+            box-shadow: 1px 1px 3px #666;
+  }
+  .wgn-nav-bar a {
+    display: block;
+    padding: 5px 10px;
+    color: #000;
+    -webkit-transition: all 0.25s ease;
+       -moz-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+         -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+  }
+  .wgn-nav-bar a:focus {
+    outline: 1px dotted #bd3741;
+    outline-offset: -1px;
+  }
+  .wgn-nav-bar a:focus,
+  .wgn-nav-bar a:hover {
+    color: #fff;
+    background-color: #666;
+  }
+  .wgn-nav-bar li.active a {
+    color: #000;
+    background-color: #ccc;
+  }
+  .wgn-nav-bar .brand,
+  .wgn-nav-bar .wgn-nav-menu {
+    display: inline-block;
+  }
+  .wgn-nav-bar .logo,
+  .wgn-nav-bar .wgn-nav-menu ul li,
+  .wgn-nav-bar .account-btn {
+    display: inline-block;
+    font: normal 10pt / 120% sans-serif;
+    font-weight: bold;
+    color: #000;
+  }
+  .wgn-nav-bar .wgn-nav-menu ul li a {
+    font-weight: bold;
+  }
+  .wgn-nav-bar .brand {
+    border-right: 1px solid #ccc;
+  }
+  .wgn-nav-bar .logo img {
+    display: inline-block;
+    height: 34px;
+    margin-bottom: -7px;
+    margin-right: 1px;
+    vertical-align: top;
+  }
+  .wgn-nav-bar .logo .slogan {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .wgn-nav-bar .wgn-nav-menu ul li {
+    border-right: 1px solid #ccc;
+  }
+  .wgn-nav-bar .anchor-name {
+    display: block;
+  }
+  .wgn-nav-bar .anchor-slogan {
+    display: block;
+    font-weight: normal;
+  }
+  .wgn-nav-bar .account-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+    text-align: right;
+    border-left: 1px solid #ccc;
+  }
+  /** Mobile menu **/
+  .wgn-nav-bar .mobile-menu-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 1001;
+    display: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+  }
+  .wgn-nav-bar .mobile-menu-btn:hover {
+    background-color: transparent;
+  }
+  .wgn-nav-bar .mobile-menu-btn:focus {
+    outline: 1px dotted #bd3741;
+    outline-offset: -1px;
+    background-color: transparent;
+  }   
+  .wgn-nav-bar .mobile-menu-btn .custom-icon-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: #333;
+    border-radius: 1px;
+    -webkit-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+       -moz-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+        -ms-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+         -o-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .wgn-nav-bar .mobile-menu-btn.menu-opened .custom-icon-bar:nth-child(1) {
+    -webkit-transform: rotate(45deg) translate(5px, 5px);
+       -moz-transform: rotate(45deg) translate(5px, 5px);
+        -ms-transform: rotate(45deg) translate(5px, 5px);
+         -o-transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(5px, 5px);
+  }
+  .wgn-nav-bar .mobile-menu-btn.menu-opened .custom-icon-bar:nth-child(2) { opacity: 0; }
+  .wgn-nav-bar .mobile-menu-btn.menu-opened .custom-icon-bar:nth-child(3) {
+    -webkit-transform: rotate(-45deg) translate(5px, -5px);
+       -moz-transform: rotate(-45deg) translate(5px, -5px);
+        -ms-transform: rotate(-45deg) translate(5px, -5px);
+         -o-transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .wgn-nav-bar .mobile-menu-wrapper .menu-btn > span {
+    display: inline-block;
+    font-size: 11px;
+  }
+  @media (max-width: 1150px) {
+    .wgn-nav-bar .brand {
+      border-right: none;
+    }
+    .wgn-nav-bar .mobile-menu-btn {
+      display: inline-block;
+    }
+    .wgn-nav-bar .wgn-nav-menu {
+      display: none;
+      padding: 0 20px;
+    }
+    .wgn-nav-bar .wgn-nav-menu.wgn-nav-menu-open {
+      display: block;
+    }
+    .wgn-nav-bar .wgn-nav-menu ul li,
+    .wgn-nav-bar .account-btn {
+      position: static;
+      display: block;
+      text-align: left;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  }
+</style>
+<!-- WeGovNow Navigation Bar CSS ends -->
+<!-- WeGovNow Navigation Bar HTML starts -->
+<a href="#wgn-main-content" tabindex="1" class="wgn-skip-to wgn-visually-hidden wgn-focusable">
+  Salta al contenuto <!-- Skip to main content -->
+</a>
+<header class="wgn-nav-bar">
+  <div class="brand">
+    <a class="logo" href="https://sandona.wegovnow.eu/">
+      <img src="https://sandona.liquidfeedback.net/static/wegovnow/sandona-logo-icon.png" alt="Logo San Donà di Piave">
+      <span class="slogan">San Donà di Piave<br>WeGovNow</span>
+    </a>
+  </div>
+  <nav id="wgn-nav-menu" class="wgn-nav-menu">
+    <ul>
+      <li><a href="https://sandona.wegovnow.firstlife.org/"><span class="anchor-name">FirstLife</span><span class="anchor-slogan">Crea sul territorio </span></a></li>
+      <li><a href="https://sandona-imc.infalia.com/"><span class="anchor-name">Improve My City</span><span class="anchor-slogan">Migliora la tua città</span></a></li>
+      <li><a href="https://sandona.liquidfeedback.net/"><span class="anchor-name">LiquidFeedback</span><span class="anchor-slogan">Partecipa, discuti e vota</span></a></li>
+      <li class="active"><a href="https://wegovnow-cm-sandona.geokey.org.uk"><span class="anchor-name">Community Maps</span><span class="anchor-slogan">Disegna e condividi la tua città</span></a></li>
+      <li><a href="https://sandona-tmp.infalia.com/"><span class="anchor-name">Offers &amp; Requests</span><span class="anchor-slogan">Condividi e scambia</span></a></li>
+      <li class="account-btn"><a href="https://sandona-tmp.infalia.com/login/uwum"><span class="anchor-name">Login</span><span class="anchor-slogan">or register</span></a></li>
+    </ul>
+  </nav>
+  <a id="mobile-menu-btn" class="mobile-menu-btn" href="#wgn-nav-menu" role="button" aria-controls="navigation" aria-expanded="false">
+    <span>Menu</span>
+    <div>
+        <span class="custom-icon-bar"></span>
+        <span class="custom-icon-bar"></span>
+        <span class="custom-icon-bar"></span>
+    </div>
+  </a>    
+</header>
+<a id="wgn-main-content" aria-hidden tabindex="-1"></a>
+<!-- WeGovNow Navigation Bar HTML ends -->
+
+<!-- WeGovNow vanilla JS starts -->
+<script type="text/javascript">
+  (function() {
+  // addEventsListener
+    var addEventsListener=function(o,t,e){var n,i=t.split(" ");for(n in i)o.addEventListener(i[n],e)}
+
+    var $body = document.querySelector('html');
+    var $firstChild = document.querySelector('#wgn-nav-menu li:first-child a');
+    var $lastChild = document.querySelector('#wgn-nav-menu li:last-child a');
+
+  // Nav.
+    var $nav = document.querySelector('#wgn-nav-menu');
+    var $mobileMenuBtn = document.querySelector('#mobile-menu-btn');
+
+  // Add attributes   
+    $mobileMenuBtn.setAttribute('role', 'button');
+    $mobileMenuBtn.setAttribute('aria-controls', 'navigation');
+    $mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+  // Basic open menu function
+    var openMenu = function() {
+      $mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+  // Basic close menu function
+    var closeMenu = function() {
+      $mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      $mobileMenuBtn.focus();
+    }
+
+  // Event: Prevent clicks/taps inside the nav from bubbling.
+    addEventsListener($nav, 'click touchend', function(event) {
+      event.stopPropagation();
+    });
+
+  // Event: Hide nav on body click/tap.
+    addEventsListener($body, 'click touchend', function(event) {
+      $mobileMenuBtn.classList.remove('menu-opened');
+      $nav.classList.remove('wgn-nav-menu-open');
+      $mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    });
+
+  // Event: Toggle nav on click.
+    $mobileMenuBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      $mobileMenuBtn.classList.toggle('menu-opened');
+      $nav.classList.toggle('wgn-nav-menu-open');
+      $mobileMenuBtn.getAttribute('aria-expanded') == 'true' ? closeMenu() : openMenu();
+    });
+
+  // Event: Hide on ESC.
+    window.addEventListener('keydown', function(event) {
+      if (event.keyCode == 27){
+        if ($mobileMenuBtn.getAttribute('aria-expanded') == 'true') {
+          $mobileMenuBtn.classList.remove('menu-opened');
+          $nav.classList.remove('wgn-nav-menu-open');
+          $mobileMenuBtn.getAttribute('aria-expanded') == 'true' ? closeMenu() : openMenu();
+        }
+      }
+    });
+
+  // Tab menu circular
+        
+    // At end of navigation block, return focus to navigation menu button
+    addEventsListener($mobileMenuBtn, 'keydown', function(e) {
+      if (e.keyCode === 9) {
+        if (!e.shiftKey) {
+          if ($mobileMenuBtn.getAttribute('aria-expanded') == 'true') { 
+            e.preventDefault();
+            document.querySelector('#wgn-nav-menu li:first-child a').focus();
+          }
+        }
+      }
+    });
+
+    // At start of navigation block, refocus close button on SHIFT+TAB
+    addEventsListener($firstChild, 'keydown', function(e) {
+      if (e.keyCode === 9) {
+        if (e.shiftKey) {
+          if ($mobileMenuBtn.getAttribute('aria-expanded') == 'true') { 
+            e.preventDefault();
+            $mobileMenuBtn.focus();
+          }
+        }
+      }
+    });
+  })();   
+</script>
+<!-- WeGovNow vanilla JS ends -->
+
+<!-- 
+    Content from UWUM ends here
+ -->
+
+<!-- include your component code -->
+
+<div style="height: 34px;"></div>
+<h1>My core component here</h1>
+<h2>San Donà di Piave WeGovNow Navigation Bar Demo</h2>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+<p>This is a <a href="#">dummy link</a> to demonstrate keyboard friendly Nagigation Bar</p>
+
+
+</body>
+</html>
