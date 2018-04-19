@@ -24,15 +24,13 @@ Unified WeGovNow User Management (UWUM) distributes the barebone version (the co
 - HTML markup
 - Vanilla JavaScript (no external libraries are needed)
 
-*The appropriate menu items are defined in UWUM and includes the menu translations*
+*The appropriate menu items are defined in UWUM including the menu translations*
 
 **NOTE:** The "Skip to content" ("Salta al contenuto") link text should also be translated on UWUM side
 
 ### Tips
 
 The navigation bar position is fixed which means that most probably will land on top of your component. You should take responsibility to include appropriate CSS rules to overcome this. For example you could:
-
-1)
 
 Wrap your component in a container 
 
@@ -42,7 +40,7 @@ Apply the following CSS
 
 `.myComponentContainer { margin-top: 45px; }`
 
-2) 
+OR 
 
 Right after the WeGovNow Navigation  Bar add the following 
 
