@@ -58,3 +58,7 @@ All demos are based on inline.html (no other file is needed)
 
 To see the Navigation Bar in action click on the following links:
 
+[San Donà di Piave Demo](https://infalia.github.io/WeGovNow-NavigationBar/sandona.html)
+
+[Barebone Demo](https://infalia.github.io/WeGovNow-NavigationBar/)
+
